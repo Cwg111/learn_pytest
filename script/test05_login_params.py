@@ -4,6 +4,8 @@
 @author:ChenWenGang
 @time:2025-02-22
 """
+import config
+
 # 导包
 from api.login import LoginAPI
 import pytest
@@ -62,7 +64,8 @@ class TestLoginAPI:
 
     # 登录成功,使用参数化测试
     @pytest.mark.parametrize(
-        "username,password,code,msg,status_code", build_test_data("../data/login.json")
+        "username,password,code,msg,status_code",
+        build_test_data(config.BASE_PATH + "/data/login.json"),
     )
     def test01_login(self, username, password, code, msg, status_code):
         login_data = {

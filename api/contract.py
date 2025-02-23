@@ -6,14 +6,17 @@
 """
 # 导包
 import requests
+import config
 
 
 # 创建接口类
 class ContractAPI:
     # 初始化
     def __init__(self):
-        self.url_upload = "http://huike-crm.itheima.net/api/common/upload"
-        self.add_contract_url = "http://huike-crm.itheima.net/api/contract"
+        # self.url_upload = "http://huike-crm.itheima.net/api/common/upload"
+        self.url_upload = config.BASE_URL + "/api/common/upload"
+        # self.add_contract_url = "http://huike-crm.itheima.net/api/contract"
+        self.add_contract_url = config.BASE_URL + "/api/contract"
 
     # 合同上传接口
     def upload_contract(self, test_data, token):

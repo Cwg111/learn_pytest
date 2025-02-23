@@ -4,10 +4,14 @@
 @author:ChenWenGang
 @time:2025-02-22
 """
+import config
+
 # 导包
 from api.login import LoginAPI
 from api.course import CourseAPI
 from api.contract import ContractAPI
+
+# import config
 
 # import pytest
 
@@ -72,7 +76,8 @@ class TestContractBusiness:
 
     # 测试用例3:上传合同成功
     def test03_upload_contract_success(self):
-        f = open("../data/test.pdf", "rb")
+        # f = open("../data/test.pdf", "rb")
+        f = open(config.BASE_PATH + "/data/test.pdf", "rb")
         response = self.contract_api.upload_contract(
             test_data=f, token=TestContractBusiness.token
         )

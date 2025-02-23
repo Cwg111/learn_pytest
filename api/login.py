@@ -8,6 +8,7 @@
 
 # 导包
 import requests
+import config
 
 
 # 创建接口类
@@ -15,8 +16,10 @@ class LoginAPI:
     # 初始化方法
     def __init__(self):
         # 指定url基本信息
-        self.url_verify = "http://huike-crm.itheima.net/api/captchaImage"
-        self.url_login = "http://huike-crm.itheima.net/api/login"
+        # self.url_verify = "http://huike-crm.itheima.net/api/captchaImage"
+        self.url_verify = config.BASE_URL + "/api/captchaImage"
+        # self.url_login = "http://huike-crm.itheima.net/api/login"
+        self.url_login = config.BASE_URL + "/api/login"
 
     # 验证码
     def get_verify_code(self):
